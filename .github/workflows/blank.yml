@@ -28,7 +28,12 @@ jobs:
       # Runs a single command using the runners shell
       - name: PWD
         run: |
-          pwd; ls;
+          pwd;
+
+      # Runs a single command using the runners shell
+      - name: PWD
+        run: |
+          ls;
           
       - name: Run a one-line script
         run: echo Hello, world!
