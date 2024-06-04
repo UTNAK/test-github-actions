@@ -29,6 +29,9 @@ jobs:
         run: |
           quarto render src/analysisShell.qmd
 
+      - name: Publish
+        uses: actions/upload-pages-artifact@v1
+             
 
   # Deploy job
   deploy:
