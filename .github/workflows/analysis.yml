@@ -31,7 +31,9 @@ jobs:
 
       - name: Publish
         uses: actions/upload-pages-artifact@v1
-             
+        with:
+          path: src/
+                
 
   # Deploy job
   deploy:
