@@ -63,7 +63,8 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v1 # or specific "vX.X.X" version tag for this action
 
-  report:
+  Commit:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
