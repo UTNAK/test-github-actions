@@ -40,10 +40,7 @@ jobs:
         with:
           path: web/
 
-      - name: Create report file
-        run: date +%s > report.txt 
-                 
-      - name: Commit report
+      - name: Commit updated files
         uses: maxgfr/github-commit-push-file@main
         with: 
           commit_name: 'fix'    
