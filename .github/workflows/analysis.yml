@@ -40,6 +40,9 @@ jobs:
         with:
           path: web/
 
+      - name: Create report file
+        run: date +%s > report.txt 
+                 
       - name: Commit report
         uses: maxgfr/github-commit-push-file@main
         with: 
@@ -67,14 +70,14 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v1 # or specific "vX.X.X" version tag for this action
 
-  Commit:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Create report file
-        run: date +%s > report.txt
-      - name: Commit report
-        uses: maxgfr/github-commit-push-file@main
-        with: 
-          commit_name: 'fix'
+  # Commit:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Create report file
+  #       run: date +%s > report.txt
+  #     - name: Commit report
+  #       uses: maxgfr/github-commit-push-file@main
+  #       with: 
+  #         commit_name: 'fix'
