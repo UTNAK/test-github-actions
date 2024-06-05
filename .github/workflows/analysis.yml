@@ -66,19 +66,10 @@ jobs:
   report:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-        with:
-          ref: ${{ github.head_ref }}
+      - uses: actions/checkout@v3
       - name: Create report file
         run: date +%s > report.txt
       - name: Commit report
-        run: |
-          git config --global user.name 'Your Name'
-          git config --global user.email 'your-username@users.noreply.github.com'
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
-          git checkout "${GITHUB_REF:11}"
-          git add -A
-          git commit -m "Automated report"
-          git push
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
+        uses: maxgfr/github-commit-push-file@main
+        with: 
+          commit_name: 'fix'
